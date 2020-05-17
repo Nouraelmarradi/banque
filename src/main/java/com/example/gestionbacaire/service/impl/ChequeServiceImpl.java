@@ -27,16 +27,13 @@ public class ChequeServiceImpl implements ChequeService {
 	private EtatCommandeService etatCommandeService;
 	@Override
 	public int save(CommandeCheque commandeCheque) {
-	Commande c=	commandeService.CommandefindByRef(commandeCheque.getRef());
-	Client c1=clientService.findByCin(commandeCheque.getClient().getCin());
+	Commande c=	commandeService.findByRef(commandeCheque.getRef());
 	EtatCommande e=etatCommandeService.findByLibelle("initiale");
 		if(c!=null)
 		return -1;
-		if(c1==null)
-			return -2;
+		
 		else {
 			commandeCheque.setDatedemmande(new Date());
-			commandeCheque.setClient(c1);
 			commandeCheque.setEtatCommande(e);
 			commandeCheque.setNbPage(commandeCheque.getNbPage());
 			commandeCheque.setPrix(commandeCheque.getPrix());
@@ -45,5 +42,5 @@ public class ChequeServiceImpl implements ChequeService {
 		   return 1;
 		}
 	}
-
+	
 }

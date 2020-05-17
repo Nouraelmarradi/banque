@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public   class Compte implements Serializable{
+public class Compte implements Serializable{
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -27,6 +27,45 @@ private Client client;
 private Devise devise ;
 @ManyToOne
  private Employe employe;
+@ManyToOne
+private TypeCompte typeCompte;
+
+
+/**
+ * @return the id
+ */
+public Long getId() {
+	return id;
+}
+
+
+
+
+
+
+/**
+ * @return the typeCompte
+ */
+public TypeCompte getTypeCompte() {
+	return typeCompte;
+}
+
+
+
+
+
+
+/**
+ * @param typeCompte the typeCompte to set
+ */
+public void setTypeCompte(TypeCompte typeCompte) {
+	this.typeCompte = typeCompte;
+}
+
+
+
+
+
 
 public Employe getEmploye() {
 	return employe;

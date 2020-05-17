@@ -23,9 +23,6 @@ private Banque banque;
 private Directeur directeur ;
 @OneToMany(mappedBy = "agence")
 private List<Employe> employes;
-@OneToMany(mappedBy = "agence")
-private List<Client> clients;
-
 
 /**
  * @return the employes
@@ -33,24 +30,14 @@ private List<Client> clients;
 public List<Employe> getEmployes() {
 	return employes;
 }
-/**
- * @return the clients
- */
-public List<Client> getClients() {
-	return clients;
-}
+
 /**
  * @param employes the employes to set
  */
 public void setEmployes(List<Employe> employes) {
 	this.employes = employes;
 }
-/**
- * @param clients the clients to set
- */
-public void setClients(List<Client> clients) {
-	this.clients = clients;
-}
+
 public Agence(Long id, int numero, String libelle, Banque banque, Directeur directeur) {
 	super();
 	this.id = id;

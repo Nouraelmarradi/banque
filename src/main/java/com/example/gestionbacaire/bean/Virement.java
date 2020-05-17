@@ -14,8 +14,8 @@ public class Virement extends Operation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Virement(String ref, Long montant, Date date, Compte comptSource, Compte compteDestinaton) {
-		super(ref, montant, date, comptSource, compteDestinaton);
+	public Virement(Long montant, Date date, Compte comptSource) {
+		super(montant, date, comptSource);
 		// TODO Auto-generated constructor stub
 	}
 

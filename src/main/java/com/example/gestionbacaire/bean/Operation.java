@@ -25,7 +25,7 @@ public  class Operation implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 private Long id; 
-	private String ref;
+	private String libelle;
 
 	private Long montant;
 	@Temporal(javax.persistence.TemporalType.DATE)
@@ -33,7 +33,44 @@ private Long id;
 	private Date date;
 	@ManyToOne
 	private Compte comptSource;
+	@ManyToOne
+	private TypeOperation typeOperation;
+	@ManyToOne
+	private Compte comptDis;
 	
+	
+	/**
+	 * @return the typeOperation
+	 */
+	public TypeOperation getTypeOperation() {
+		return typeOperation;
+	}
+
+
+	/**
+	 * @return the comptDis
+	 */
+	public Compte getComptDis() {
+		return comptDis;
+	}
+
+
+	/**
+	 * @param typeOperation the typeOperation to set
+	 */
+	public void setTypeOperation(TypeOperation typeOperation) {
+		this.typeOperation = typeOperation;
+	}
+
+
+	/**
+	 * @param comptDis the comptDis to set
+	 */
+	public void setComptDis(Compte comptDis) {
+		this.comptDis = comptDis;
+	}
+
+
 	/**
 	 * @return the id
 	 */
@@ -42,19 +79,21 @@ private Long id;
 	}
 
 
+	
+
 	/**
-	 * @return the ref
+	 * @return the libelle
 	 */
-	public String getRef() {
-		return ref;
+	public String getLibelle() {
+		return libelle;
 	}
 
 
 	/**
-	 * @param ref the ref to set
+	 * @param libelle the libelle to set
 	 */
-	public void setRef(String ref) {
-		this.ref = ref;
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 
@@ -116,10 +155,9 @@ private Long id;
 	}
 
 
-	public Operation(String ref,  Long montant, Date date, Compte comptSource,
-			Compte compteDestinaton) {
+	public Operation(  Long montant, Date date, Compte comptSource) {
 		super();
-		this.ref = ref;
+		
 		this.montant = montant;
 		this.date = date;
 		this.comptSource = comptSource;

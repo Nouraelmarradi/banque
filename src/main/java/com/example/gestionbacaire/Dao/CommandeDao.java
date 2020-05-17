@@ -10,5 +10,5 @@ import com.example.gestionbacaire.bean.Commande;
 @Repository
 public interface CommandeDao extends JpaRepository<Commande, Long> {
 public Commande findByRef(String ref);
-public List<Commande>findByClientCin(String cin);
+public List<Commande>findByCompteRib(String rib);
 }

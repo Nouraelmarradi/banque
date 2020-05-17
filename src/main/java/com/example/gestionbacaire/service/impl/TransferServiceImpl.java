@@ -32,8 +32,8 @@ public class TransferServiceImpl implements TransferService{
 	private CompteDao compteDao;	
 		@Override
 		public int save(Transfer transfer) {
-			Operation o=findByRef(transfer.getRef());
-			Operation d=	 oparationService.findByRef(transfer.getRef());
+			Operation o=findByRef(transfer.getLibelle());
+			Operation d=	 oparationService.findByRef(transfer.getLibelle());
 			Compte c=compteService.findByRib(transfer.getComptSource().getRib());
 			Compte cr=compteService.findByRib(transfer.getCompteDes().getRib());
 			if(o!=null) 
@@ -55,7 +55,9 @@ public class TransferServiceImpl implements TransferService{
 	compteDao.save(c);
 	compteDao.save(cr);
 	transferDao.save(transfer);
-			return 1;}
+	System.out.println(transfer.getClass().getSimpleName());
+			return 1;
+			}
 					
 			}
 			}

@@ -1,20 +1,25 @@
 package com.example.gestionbacaire.bean;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 @Entity
-public class Facture {
+public class Facture implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	@ManyToOne
 	private Compte compte ;
-	private double montant;
+	private Long montant;
 	@ManyToOne
 	private TypeFacture typeFacture;
+	private Date dateFacture;
+	
 	/**
 	 * @return the id
 	 */
@@ -22,15 +27,18 @@ public class Facture {
 		return id;
 	}
 	/**
-	 * @return the compte
+	 * @param id the id to set
 	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Compte getCompte() {
 		return compte;
 	}
 	/**
 	 * @return the montant
 	 */
-	public double getMontant() {
+	public Long getMontant() {
 		return montant;
 	}
 	/**
@@ -40,10 +48,10 @@ public class Facture {
 		return typeFacture;
 	}
 	/**
-	 * @param id the id to set
+	 * @return the dateFacture
 	 */
-	public void setId(Long id) {
-		this.id = id;
+	public Date getDateFacture() {
+		return dateFacture;
 	}
 	/**
 	 * @param compte the compte to set
@@ -54,7 +62,7 @@ public class Facture {
 	/**
 	 * @param montant the montant to set
 	 */
-	public void setMontant(double montant) {
+	public void setMontant(Long montant) {
 		this.montant = montant;
 	}
 	/**
@@ -63,21 +71,13 @@ public class Facture {
 	public void setTypeFacture(TypeFacture typeFacture) {
 		this.typeFacture = typeFacture;
 	}
-	public Facture(Long id, Compte compte, double montant, TypeFacture typeFacture) {
-		super();
-		this.id = id;
-		this.compte = compte;
-		this.montant = montant;
-		this.typeFacture = typeFacture;
+	/**
+	 * @param dateFacture the dateFacture to set
+	 */
+	public void setDateFacture(Date dateFacture) {
+		this.dateFacture = dateFacture;
 	}
-	public Facture() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString() {
-		return "Facture [id=" + id + ", compte=" + compte + ", montant=" + montant + ", typeFacture=" + typeFacture
-				+ "]";
-	}
+	
+	
 	
 }

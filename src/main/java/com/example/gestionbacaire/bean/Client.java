@@ -22,13 +22,32 @@ public class Client implements Serializable {
 	private String prenom;
 	private String age;
 	private String email;
-	@OneToMany(mappedBy = "client")
-	private List<Compte> comptes;
-	        @OneToMany(mappedBy = "client")
-	        private List<Commande> commandes;
+	
+	       
 	        @ManyToOne
 	        private Agence agence;
+	        
 	
+	/**
+			public List<Commande> getCommandes() {
+				return commandes;
+			}
+
+
+			/**
+			 * @return the agence
+			 */
+			public Agence getAgence() {
+				return agence;
+			}
+
+
+
+			public void setAgence(Agence agence) {
+				this.agence = agence;
+			}
+
+
 	public String getCin() {
 		return cin;
 	}

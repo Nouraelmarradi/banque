@@ -14,10 +14,11 @@ public class Debit extends Operation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Debit(String ref, Long montant, Date date, Compte comptSource, Compte compteDestinaton) {
-		super(ref, montant, date, comptSource, compteDestinaton);
+	public Debit(Long montant, Date date, Compte comptSource) {
+		super(montant, date, comptSource);
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	
 	

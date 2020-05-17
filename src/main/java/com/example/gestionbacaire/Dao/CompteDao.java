@@ -11,5 +11,5 @@ import com.example.gestionbacaire.bean.Compte;
 public interface CompteDao extends JpaRepository<Compte, Long> {
 public Compte findByRib(String rib);
 public List<Compte> findByClientCin(String cin); 
-
+public int deleteByRib(String rib);
 }

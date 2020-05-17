@@ -12,4 +12,6 @@ public interface OperationDao extends JpaRepository<Operation, Long>{
 Operation  findByRef(String ref);
 List<Operation> findAllByOrderByDateDesc();
 List<Operation> findByComptSourceRibOrderByDateDesc(String rib);
+int deleteByComptSourceRib(String rib);
+int deleteByComptDis(String rib);
 }

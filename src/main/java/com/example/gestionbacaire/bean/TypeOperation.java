@@ -34,9 +34,9 @@ public class TypeOperation implements Serializable{
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public TypeOperation(Long id, String libelle) {
+	public TypeOperation(String libelle) {
 		super();
-		this.id = id;
+		
 		this.libelle = libelle;
 	}
 	public TypeOperation() {

@@ -41,19 +41,7 @@ public CommandeCheque() {
 	// TODO Auto-generated constructor stub
 }
 
-public CommandeCheque(Long id, Date datedemmande, String ref, Client client, EtatCommande etatCommande) {
-	super(id, datedemmande, ref, client, etatCommande);
-	// TODO Auto-generated constructor stub
-}
 
-
-public CommandeCheque(Long id, Date datedemmande, String ref, Client client, EtatCommande etatCommande, int nbPage,
-		double prix) {
-	super(id, datedemmande, ref, client, etatCommande);
-	etatCommande.setLibelle("initialle");
-	this.nbPage = nbPage;
-	this.prix = prix;
-}
 
 
 @Override

@@ -44,7 +44,7 @@ private DebitDao debitDao;
 	
 	    @Override
 	    public int save(Debit debit) {
-		 Operation d=operationService.findByRef(debit.getRef());
+		 Operation d=operationService.findByRef(debit.getLibelle());
 		 Compte c=compteService.findByRib(debit.getComptSource().getRib());
 
 		 if(d!=null)

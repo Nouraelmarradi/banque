@@ -17,11 +17,14 @@ private Compte compteDes;
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transfer(String ref, Long montant, Date date, Compte comptSource, Compte compteDestinaton,Compte compteDes) {
-		super(ref, montant, date, comptSource, compteDestinaton);
-		this.compteDes=compteDes;
+
+
+	public Transfer(Long montant, Date date, Compte comptSource) {
+		super(montant, date, comptSource);
 		// TODO Auto-generated constructor stub
 	}
+
+
 
 	public Transfer(Compte compteDes) {
 		super();

@@ -1,19 +1,33 @@
 package com.example.gestionbacaire.bean;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class TypeFacture {
+public class TypeFacture  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+    private Long id;
 	private String libelle;
+	private double prix;
+	
+	
 	/**
-	 * @return the id
+	 * @return the prix
 	 */
+	public double getPrix() {
+		return prix;
+	}
+	/**
+	 * @param prix the prix to set
+	 */
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -39,9 +53,9 @@ private Long id;
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TypeFacture(Long id, String libelle) {
+	public TypeFacture( String libelle) {
 		super();
-		this.id = id;
+		
 		this.libelle = libelle;
 	}
 	@Override

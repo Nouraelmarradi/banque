@@ -44,16 +44,7 @@ public CreditCard() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public CreditCard(Long id, Date datedemmande, String ref, Client client, EtatCommande etatCommande) {
-	super(id, datedemmande, ref, client, etatCommande);
-	// TODO Auto-generated constructor stub
-}
-public CreditCard(Long id, Date datedemmande, String ref, Client client, EtatCommande etatCommande, Long id2,
-		double prix) {
-	super(id, datedemmande, ref, client, etatCommande);
-	id = id2;
-	this.prix = prix;
-}
+
 @Override
 public String toString() {
 	return "CreditCard [id=" + id + ", prix=" + prix + "]";
