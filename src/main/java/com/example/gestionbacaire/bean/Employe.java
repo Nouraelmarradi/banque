@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Employe  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+    private Long id;
 	private String nom;
 	private String prenom;
 	private String cin;
@@ -24,9 +24,74 @@ private Long id;
 	private Date datenaissance;
 	@ManyToOne
 	private Agence agence;
+	private String mission;
+	private String passworld;
+	private String username;
+	private String salet;
+	@ManyToOne
+	private User user;
 	
 	
-	
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+	/**
+	 * @return the salet
+	 */
+	public String getSalet() {
+		return salet;
+	}
+	/**
+	 * @param salet the salet to set
+	 */
+	public void setSalet(String salet) {
+		this.salet = salet;
+	}
+	/**
+	 * @return the mission
+	 */
+	public String getMission() {
+		return mission;
+	}
+	/**
+	 * @return the passworld
+	 */
+	public String getPassworld() {
+		return passworld;
+	}
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+	/**
+	 * @param passworld the passworld to set
+	 */
+	public void setPassworld(String passworld) {
+		this.passworld = passworld;
+	}
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	/**
+	 * @param mission the mission to set
+	 */
+	public void setMission(String mission) {
+		this.mission = mission;
+	}
 	/**
 	 * @return the cin
 	 */

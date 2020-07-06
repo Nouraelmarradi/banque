@@ -1,6 +1,7 @@
 package com.example.gestionbacaire.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,44 +9,73 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 @Entity
 public class Agence  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-private int numero;
+private Long numero;
 private String libelle;
 @ManyToOne
 private Banque banque;
-@ManyToOne
-private Directeur directeur ;
-@OneToMany(mappedBy = "agence")
-private List<Employe> employes;
+
+private String  directeure ;
+@Temporal(javax.persistence.TemporalType.DATE)
+private Date dateCreation;
+private String adress;
+
+
+
 
 /**
- * @return the employes
+ * @return the directeure
  */
-public List<Employe> getEmployes() {
-	return employes;
-}
 
+public String getDirecteure() {
+	return directeure;
+}
 /**
- * @param employes the employes to set
+ * @param directeure the directeure to set
  */
-public void setEmployes(List<Employe> employes) {
-	this.employes = employes;
-}
 
-public Agence(Long id, int numero, String libelle, Banque banque, Directeur directeur) {
+public void setDirecteure(String directeure) {
+	this.directeure = directeure;
+}
+public Agence(Long id, Long numero, String libelle, Banque banque, String directeure, Date dateCreation,
+		String adress) {
 	super();
 	this.id = id;
 	this.numero = numero;
 	this.libelle = libelle;
 	this.banque = banque;
-	this.directeur = directeur;
+	this.directeure = directeure;
+	this.dateCreation = dateCreation;
+	this.adress = adress;
 }
+public Date getDateCreation() {
+	return dateCreation;
+}
+/**
+ * @return the adress
+ */
+public String getAdress() {
+	return adress;
+}
+/**
+ * @param dateCreation the dateCreation to set
+ */
+public void setDateCreation(Date dateCreation) {
+	this.dateCreation = dateCreation;
+}
+/**
+ * @param adress the adress to set
+ */
+public void setAdress(String adress) {
+	this.adress = adress;
+}
+
 public Agence() {
 	super();
 	// TODO Auto-generated constructor stub
@@ -59,7 +89,7 @@ public Long getId() {
 /**
  * @return the numero
  */
-public int getNumero() {
+public Long getNumero() {
 	return numero;
 }
 /**
@@ -77,19 +107,14 @@ public Banque getBanque() {
 /**
  * @return the directeur
  */
-public Directeur getDirecteur() {
-	return directeur;
-}
-/**
- * @param id the id to set
- */
+
 public void setId(Long id) {
 	this.id = id;
 }
 /**
  * @param numero the numero to set
  */
-public void setNumero(int numero) {
+public void setNumero(Long numero) {
 	this.numero = numero;
 }
 /**
@@ -104,12 +129,7 @@ public void setLibelle(String libelle) {
 public void setBanque(Banque banque) {
 	this.banque = banque;
 }
-/**
- * @param directeur the directeur to set
- */
-public void setDirecteur(Directeur directeur) {
-	this.directeur = directeur;
-}
+
 
 
 }

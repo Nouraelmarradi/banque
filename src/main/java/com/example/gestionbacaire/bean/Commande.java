@@ -16,31 +16,65 @@ import javax.persistence.Temporal;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="commande_type")
 public  class Commande implements Serializable  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
-	@Temporal(javax.persistence.TemporalType.DATE)
-	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern ="dd-MM-yyyy")
+ 	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern ="dd-MM-yyyy")
 	private Date datedemmande;
 	private String ref;
 	@ManyToOne
 	private Compte compte;
 	@ManyToOne
     private EtatCommande etatCommande;
-	@ManyToOne
-	private Typecommande typecommande;
+
+	private String message;
+    private int  nbPage;
+    private int qt;
+    
+
+	/**
+	 * @return the nbPage
+	 */
+	public int getNbPage() {
+		return nbPage;
+	}
+	/**
+	 * @return the qt
+	 */
+	public int getQt() {
+		return qt;
+	}
+	/**
+	 * @param nbPage the nbPage to set
+	 */
+	public void setNbPage(int nbPage) {
+		this.nbPage = nbPage;
+	}
+	/**
+	 * @param qt the qt to set
+	 */
+	public void setQt(int qt) {
+		this.qt = qt;
+	}
+	/**
+	 * @return the message
+	 */
+	public String getMessage() {
+		return message;
+	}
+	/**
+	 * @param message the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	/**
 	 * @return the datedemmande
 	 */
 	public Date getDatedemmande() {
 		return datedemmande;
 	}
-	/**
-	 * @return the ref
-	 */
 	public String getRef() {
 		return ref;
 	}
@@ -56,15 +90,7 @@ private Long id;
 	public EtatCommande getEtatCommande() {
 		return etatCommande;
 	}
-	/**
-	 * @return the typecommande
-	 */
-	public Typecommande getTypecommande() {
-		return typecommande;
-	}
-	/**
-	 * @param datedemmande the datedemmande to set
-	 */
+	
 	public void setDatedemmande(Date datedemmande) {
 		this.datedemmande = datedemmande;
 	}
@@ -99,30 +125,23 @@ private Long id;
 	public void setEtatCommande(EtatCommande etatCommande) {
 		this.etatCommande = etatCommande;
 	}
-	/**
-	 * @param typecommande the typecommande to set
-	 */
-	public void setTypecommande(Typecommande typecommande) {
-		this.typecommande = typecommande;
-	}
+	
 	@Override
 	public String toString() {
 		return "Commande [id=" + id + ", datedemmande=" + datedemmande + ", ref=" + ref + ", compte=" + compte
-				+ ", etatCommande=" + etatCommande + ", typecommande=" + typecommande + "]";
+				+ ", etatCommande=" + etatCommande + "]";
 	}
 	public Commande() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Commande(Long id, Date datedemmande, String ref, Compte compte, EtatCommande etatCommande,
-			Typecommande typecommande) {
+	public Commande(Long id, Date datedemmande, String ref, Compte compte, EtatCommande etatCommande) {
 		super();
 		this.id = id;
 		this.datedemmande = datedemmande;
 		this.ref = ref;
 		this.compte = compte;
 		this.etatCommande = etatCommande;
-		this.typecommande = typecommande;
 	}
 	@Override
 	public int hashCode() {

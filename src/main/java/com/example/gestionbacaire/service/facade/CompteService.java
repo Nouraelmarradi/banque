@@ -10,5 +10,9 @@ public interface CompteService {
 	public int deleteByRib(String rib);
 	public List<Compte> findByClientCin(String cin);
 	public int deleteAll(String cin);
+	int updateCompte(Compte c);
+	List<Compte> findAll();
+	List<Compte> findByClientUsername(String Username);
+	List<Compte> findAllbyRech(String rib);
 	
 }

@@ -13,4 +13,10 @@ import com.example.gestionbacaire.bean.Client;
 public interface ClientDao extends PagingAndSortingRepository<Client, Long> ,JpaRepository<Client, Long> {
 public Client findByCin(String cin);
 public int deleteByCin(String cin);
+public Client findByUsername(String username);
+public Client findByUserUsername(String username);
+public Client findByCodeContrat(Long codeContrat);
+
+
+
 }

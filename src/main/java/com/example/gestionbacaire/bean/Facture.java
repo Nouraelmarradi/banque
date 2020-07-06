@@ -13,6 +13,9 @@ public class Facture implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+	private String libelle;
+	private String ref;
+
 	@ManyToOne
 	private Compte compte ;
 	private Long montant;

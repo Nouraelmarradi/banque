@@ -13,7 +13,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Compte implements Serializable{
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)

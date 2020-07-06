@@ -14,8 +14,7 @@ public class Banque  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
 private String nom;
-@OneToMany(mappedBy = "banque")
-private List<Agence>agences;
+private   Long codeBanque;
 /**
  * @return the id
  */
@@ -25,19 +24,25 @@ public Long getId() {
 	return id;
 }
 
-/**
- * @return the agences
- */
-public List<Agence> getAgences() {
-	return agences;
-}
+
 
 /**
- * @param agences the agences to set
+ * @return the codeBanque
  */
-public void setAgences(List<Agence> agences) {
-	this.agences = agences;
+public Long getCodeBanque() {
+	return codeBanque;
 }
+
+
+
+/**
+ * @param codeBanque the codeBanque to set
+ */
+public void setCodeBanque(Long  codeBanque) {
+	this.codeBanque = codeBanque;
+}
+
+
 
 public String getNom() {
 	return nom;

@@ -1,6 +1,7 @@
 package com.example.gestionbacaire.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 
 
@@ -22,22 +24,141 @@ public class Client implements Serializable {
 	private String prenom;
 	private String age;
 	private String email;
+	private String username;
+	private String salt;
+	private String passworld;
 	
-	       
-	        @ManyToOne
-	        private Agence agence;
-	        
-	
+	private Date date;
+	private Long codeContrat;
+	@ManyToOne
+	private Employe employe;
+	@OneToOne
+	private User user;
+	 
 	/**
-			public List<Commande> getCommandes() {
-				return commandes;
-			}
+	 * @return the codeContrat
+	 */
+	public Long getCodeContrat() {
+		return codeContrat;
+	}
 
 
-			/**
-			 * @return the agence
-			 */
-			public Agence getAgence() {
+
+	/**
+	 * @return the employe
+	 */
+	public Employe getEmploye() {
+		return employe;
+	}
+
+
+
+	/**
+	 * @param codeContrat the codeContrat to set
+	 */
+	public void setCodeContrat(Long codeContrat) {
+		this.codeContrat = codeContrat;
+	}
+
+
+
+	/**
+	 * @param employe the employe to set
+	 */
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
+	}
+
+
+
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+
+
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+	/**
+	 * @return the salt
+	 */
+	public String getSalt() {
+		return salt;
+	}
+
+
+
+	/**
+	 * @return the passworld
+	 */
+	public String getPassworld() {
+		return passworld;
+	}
+
+
+
+	/**
+	 * @param salt the salt to set
+	 */
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+
+
+	/**
+	 * @param passworld the passworld to set
+	 */
+	public void setPassworld(String passworld) {
+		this.passworld = passworld;
+	}
+
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@ManyToOne
+	 private Agence agence;
+     public Agence getAgence() {
 				return agence;
 			}
 
